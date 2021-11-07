@@ -1,8 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="ru.job4j.dream.store.Store" %>
-<%@ page import="ru.job4j.dream.model.Post" %>
-<%@ page import="java.util.Collection" %>
+<%@ page language="java" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,7 +36,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${posts}" var="post">
+                    <c:forEach items="${requestScope.posts}" var="post">
                         <tr>
                             <td>
                                 <a href='<c:url value="/post/edit.jsp?id=${post.id}"/>'>

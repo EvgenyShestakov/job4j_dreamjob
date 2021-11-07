@@ -2,14 +2,14 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-           version="4.0">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="2.5"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>PostServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlet.PostServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlets.PostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PostServlet</servlet-name>
@@ -17,7 +17,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>CandidateServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlet.CandidateServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlets.CandidateServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CandidateServlet</servlet-name>
@@ -25,10 +25,42 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlet.IndexServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlets.IndexServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlets.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlets.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeletePhotoServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlets.DeletePhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePhotoServlet</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UploadPhotoServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlets.UploadPhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadPhotoServlet</servlet-name>
+    <url-pattern>/up</url-pattern>
   </servlet-mapping>
 </web-app>

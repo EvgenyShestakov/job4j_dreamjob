@@ -1,8 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="ru.job4j.dream.store.Store" %>
-<%@ page import="ru.job4j.dream.model.Candidate" %>
-<%@ page import="java.util.Collection" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" pageEncoding="UTF-8" session="true"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +24,6 @@
 </head>
 <body>
 <div class="container pt-3">
-
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
@@ -36,16 +34,29 @@
                     <thead>
                     <tr>
                         <th scope="col">Названия</th>
+                        <th scope="col">Фотография</th>
                     </tr>
-                    </thead>
                     <tbody>
-                    <c:forEach items="${candidates}" var="candidate">
+                    <c:forEach items="${requestScope.candidates}" var="candidate">
                         <tr>
                             <td>
                                 <a href='<c:url value="/candidate/edit.jsp?id=${candidate.id}"/>'>
                                     <i class="fa fa-edit mr-3"></i>
                                 </a>
                                 <c:out value="${candidate.name}"/>
+                            </td>
+                            <td>
+                                <img src="<c:url value='/download?name=${candidate.id}'/>" width="200px" height="200px"
+                                alt="Фотография кандидата"/>
+                            </td>
+                            <td>
+                                <form action="<c:url value='/upload?id=${candidate.id}'/>" method="post" enctype="multipart/form-data">
+                                    <button type="submit" class="btn btn-success">Добавить фотографию</button>
+                                </form>
+                                <br/>
+                                <form action="<c:url value='/delete?id=${candidate.id}'/>" method="post" enctype="multipart/form-data">
+                                    <button type="submit" class="btn btn-warning">Удалить фотографию</button>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>

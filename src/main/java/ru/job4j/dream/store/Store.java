@@ -3,9 +3,12 @@ package ru.job4j.dream.store;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,6 +18,7 @@ public class Store {
     private static final AtomicInteger CANDIDATE_ID = new AtomicInteger(4);
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
     private final Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
+    private final Properties properties = new Properties();
 
     private Store() {
         posts.put(1, new Post(1, "Junior Java Job", "description", LocalDateTime.now()));
@@ -23,6 +27,16 @@ public class Store {
         candidates.put(1, new Candidate(1, "Junior Java"));
         candidates.put(2, new Candidate(2, "Middle Java"));
         candidates.put(3, new Candidate(3, "Senior Java"));
+        initProperties();
+    }
+
+    private void initProperties() {
+        ClassLoader classLoader = Store.class.getClassLoader();
+        try (InputStream io = classLoader.getResourceAsStream("app.properties")) {
+            properties.load(io);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Store instOf() {
@@ -57,5 +71,9 @@ public class Store {
 
     public Collection<Candidate> findAllCandidates() {
         return candidates.values();
+    }
+
+    public Properties getProperties() {
+        return properties;
     }
 }
