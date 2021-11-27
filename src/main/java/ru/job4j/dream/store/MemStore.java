@@ -12,7 +12,7 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MemStore {
+public class MemStore implements Store {
     private static final MemStore INST = new MemStore();
     private static final AtomicInteger POST_ID = new AtomicInteger(4);
     private static final AtomicInteger CANDIDATE_ID = new AtomicInteger(4);
@@ -43,14 +43,14 @@ public class MemStore {
         return INST;
     }
 
-    public void save(Post post) {
+    public void savePost(Post post) {
         if (post.getId() == 0) {
             post.setId(POST_ID.incrementAndGet());
         }
         posts.put(post.getId(), post);
     }
 
-    public void save(Candidate candidate) {
+    public void saveCandidate(Candidate candidate) {
         if (candidate.getId() == 0) {
             candidate.setId(CANDIDATE_ID.incrementAndGet());
         }

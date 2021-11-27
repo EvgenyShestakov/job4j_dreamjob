@@ -1,7 +1,6 @@
 package ru.job4j.dream.servlets;
 
-import ru.job4j.dream.store.MemStore;
-
+import ru.job4j.dream.store.DbStore;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,7 @@ public class DownloadServlet extends HttpServlet {
                          HttpServletResponse resp) throws IOException {
         File users = null;
         String id = req.getParameter("name");
-        for (File file : new File(MemStore.instOf().getProperties().
+        for (File file :  new File(DbStore.instOf().getProperties().
                 getProperty("path")).listFiles()) {
             String[] strings = file.getName().split("/");
             if (strings[strings.length - 1].substring(0, 1).equals(id)) {
