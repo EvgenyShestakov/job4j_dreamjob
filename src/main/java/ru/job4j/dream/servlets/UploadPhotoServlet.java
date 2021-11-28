@@ -4,6 +4,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.job4j.dream.store.DbStore;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,6 +19,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class UploadPhotoServlet extends HttpServlet {
+    private static final Logger LOG = LoggerFactory.getLogger(UploadPhotoServlet.class.getName());
+
     @Override
     protected void doPost(HttpServletRequest req,
                           HttpServletResponse resp) throws ServletException, IOException {
@@ -43,7 +47,7 @@ public class UploadPhotoServlet extends HttpServlet {
                 }
             }
         } catch (FileUploadException e) {
-            e.printStackTrace();
+            LOG.error("Exception in doPost method", e);
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/candidates.do");
         dispatcher.forward(req, resp);

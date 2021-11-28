@@ -1,5 +1,7 @@
 package ru.job4j.dream.store;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
 
@@ -13,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MemStore implements Store {
+    private static final Logger LOG = LoggerFactory.getLogger(MemStore.class.getName());
     private static final MemStore INST = new MemStore();
     private static final AtomicInteger POST_ID = new AtomicInteger(4);
     private static final AtomicInteger CANDIDATE_ID = new AtomicInteger(4);
@@ -35,7 +38,7 @@ public class MemStore implements Store {
         try (InputStream io = classLoader.getResourceAsStream("app.properties")) {
             properties.load(io);
         } catch (IOException e) {
-            e.printStackTrace();
+        LOG.error("Exception in initProperties method", e);
         }
     }
 
