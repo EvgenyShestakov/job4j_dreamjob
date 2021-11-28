@@ -147,7 +147,7 @@ public class DbStore implements Store {
     private void updatePost(Post post) {
         try (Connection cn = pool.getConnection();
              PreparedStatement ps = cn.
-                     prepareStatement("UPDATE post SET name (?) where id = (?)")
+                     prepareStatement("UPDATE post SET name = (?) where id = (?)")
         ) {
             ps.setString(1, post.getName());
             ps.setInt(2, post.getId());
@@ -160,7 +160,7 @@ public class DbStore implements Store {
     private void updateCandidate(Candidate candidate) {
         try (Connection cn = pool.getConnection();
              PreparedStatement ps = cn.
-                     prepareStatement("UPDATE candidate SET name (?) where id = (?)")
+                     prepareStatement("UPDATE candidate SET name = (?) where id = (?)")
         ) {
             ps.setString(1, candidate.getName());
             ps.setInt(2, candidate.getId());
