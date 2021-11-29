@@ -13,11 +13,11 @@ public class DownloadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse resp) throws IOException {
         File users = null;
-        String id = req.getParameter("name");
+        String id = req.getParameter("id");
         for (File file :  new File(DbStore.instOf().getProperties().
                 getProperty("path")).listFiles()) {
-            String[] strings = file.getName().split("/");
-            if (strings[strings.length - 1].substring(0, 1).equals(id)) {
+            String[] strings = file.getName().split("\\.");
+            if (strings[0].equals(id)) {
                 users = file;
                 break;
             }

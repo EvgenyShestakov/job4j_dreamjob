@@ -46,7 +46,7 @@
                                 <c:out value="${candidate.name}"/>
                             </td>
                             <td>
-                                <img src="<c:url value='/download?name=${candidate.id}'/>" width="200px" height="200px"
+                                <img src="<c:url value='/download?id=${candidate.id}'/>" width="200px" height="200px"
                                 alt="Фотография кандидата"/>
                             </td>
                             <td>

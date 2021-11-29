@@ -12,16 +12,16 @@ public class CandidateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse resp) throws IOException, ServletException {
-            req.setAttribute("candidates", DbStore.instOf().findAllCandidates());
-            req.getRequestDispatcher("candidates.jsp").forward(req, resp);
-        }
-
-        @Override
-        protected void doPost(HttpServletRequest req,
-                               HttpServletResponse resp) throws IOException {
-            req.setCharacterEncoding("UTF-8");
-            DbStore.instOf().saveCandidate(new Candidate(Integer.parseInt(req.
-                    getParameter("id")), req.getParameter("name")));
-            resp.sendRedirect(req.getContextPath() + "/candidates.do");
-        }
+        req.setAttribute("candidates", DbStore.instOf().findAllCandidates());
+        req.getRequestDispatcher("candidates.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req,
+                          HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("UTF-8");
+        DbStore.instOf().saveCandidate(new Candidate(Integer.parseInt(req.
+                getParameter("id")), req.getParameter("name")));
+        resp.sendRedirect(req.getContextPath() + "/candidates.do");
+    }
+}

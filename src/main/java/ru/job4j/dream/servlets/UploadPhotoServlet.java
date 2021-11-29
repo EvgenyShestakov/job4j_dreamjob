@@ -7,7 +7,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.job4j.dream.store.DbStore;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +48,6 @@ public class UploadPhotoServlet extends HttpServlet {
         } catch (FileUploadException e) {
             LOG.error("Exception in doPost method", e);
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/candidates.do");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/candidates.do");
     }
 }
