@@ -25,6 +25,9 @@
 <body>
 <div class="container pt-3">
     <div class="row">
+        <jsp:include page="/header.jsp"/>
+    </div>
+    <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Кандидаты
@@ -47,7 +50,7 @@
                             </td>
                             <td>
                                 <img src="<c:url value='/download?id=${candidate.id}'/>" width="200px" height="200px"
-                                alt="Фотография кандидата"/>
+                                     alt="Фотография кандидата"/>
                             </td>
                             <td>
                                 <form action="<c:url value='/upload?id=${candidate.id}'/>" method="post" enctype="multipart/form-data">

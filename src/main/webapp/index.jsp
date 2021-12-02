@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" session="true"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
@@ -25,23 +24,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/posts.do"/>'>Вакансии</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/candidates.do"/>'>Кандидаты</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/post/edit.jsp"/>'>Добавить вакансию</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/candidate/edit.jsp"/>'>Добавить кандидата</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/login.jsp"/>'>Войти</a>
-            </li>
-        </ul>
+        <jsp:include page="/header.jsp"/>
     </div>
     <div class="row">
         <div class="card" style="width: 100%">
