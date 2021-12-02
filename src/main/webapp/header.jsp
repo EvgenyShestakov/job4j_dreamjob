@@ -33,10 +33,10 @@
                 <a class="nav-link" href='<c:url value="/candidates.do"/>'>Кандидаты</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/post/edit.jsp"/>'>Добавить вакансию</a>
+                <a class="nav-link" href='<c:url value="/edit.do?key=post"/>'>Добавить вакансию</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href='<c:url value="/candidate/edit.jsp"/>'>Добавить кандидата</a>
+                <a class="nav-link" href='<c:url value="/edit.do?"/>'>Добавить кандидата</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href='<c:url value="/login.jsp"/>'>Войти</a>
