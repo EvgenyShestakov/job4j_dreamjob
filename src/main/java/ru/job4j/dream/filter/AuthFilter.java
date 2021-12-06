@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class AuthFilter implements Filter {
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
     }
 
     @Override
@@ -16,8 +16,9 @@ public class AuthFilter implements Filter {
                          FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) sreq;
         HttpServletResponse resp = (HttpServletResponse) sresp;
+        req.setCharacterEncoding("UTF-8");
         String uri = req.getRequestURI();
-        if (uri.endsWith("auth.do")) {
+        if (uri.endsWith("auth.do") || uri.endsWith("reg.do")) {
             chain.doFilter(sreq, sresp);
             return;
         }

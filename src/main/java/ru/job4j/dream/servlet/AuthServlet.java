@@ -1,6 +1,7 @@
-package ru.job4j.dream.servlets;
+package ru.job4j.dream.servlet;
 
 import ru.job4j.dream.model.User;
+import ru.job4j.dream.store.DbStore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,13 +16,11 @@ public class AuthServlet extends HttpServlet {
                           HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        if ("root@local".equals(email) && "root".equals(password)) {
+        User admin = DbStore.instOf().findUserByEmail(email);
+        if (admin != null && admin.getPassword().equals(password)) {
             HttpSession sc = req.getSession();
-            User admin = new User();
-            admin.setName("Admin");
-            admin.setEmail(email);
             sc.setAttribute("user", admin);
-            resp.sendRedirect(req.getContextPath() + "/posts.do");
+            resp.sendRedirect(req.getContextPath() + "/index.do");
         } else {
             req.setAttribute("error", "Не верный email или пароль");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

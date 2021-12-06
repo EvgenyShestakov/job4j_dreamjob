@@ -27,10 +27,14 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Авторизация
+                Регистрация
             </div>
             <div class="card-body">
-                <form action="<c:url value='/auth.do'/>" method="post">
+                <form action="<c:url value='/reg.do'/>" method="post">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
                     <div class="form-group">
                         <label>Почта</label>
                         <input type="text" class="form-control" name="email">
@@ -39,15 +43,7 @@
                         <label>Пароль</label>
                         <input type="text" class="form-control" name="password">
                     </div>
-                    <div class="form-group">
-                        <a class="nav-link" href='<c:url value="/reg.do"/>'>Регистрация</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Войти</button>
-                    <c:if test="${not empty fine}">
-                        <div style="color:green; font-weight: bold; margin: 30px 0;">
-                            <c:out value="${fine}"/>
-                        </div>
-                    </c:if>
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                     <c:if test="${not empty error}">
                         <div style="color:red; font-weight: bold; margin: 30px 0;">
                             <c:out value="${error}"/>

@@ -9,7 +9,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>PostServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.PostServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.PostServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PostServlet</servlet-name>
@@ -17,7 +17,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>CandidateServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.CandidateServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.CandidateServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CandidateServlet</servlet-name>
@@ -25,7 +25,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.IndexServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.IndexServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
@@ -33,7 +33,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>DownloadServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.DownloadServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.DownloadServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DownloadServlet</servlet-name>
@@ -41,7 +41,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>UploadServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.UploadServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.UploadServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
@@ -49,7 +49,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>DeletePhotoServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.DeletePhotoServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.DeletePhotoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeletePhotoServlet</servlet-name>
@@ -57,7 +57,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>UploadPhotoServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.UploadPhotoServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.UploadPhotoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UploadPhotoServlet</servlet-name>
@@ -65,7 +65,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>AuthServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.AuthServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.AuthServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
@@ -73,19 +73,27 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.LogoutServlet</servlet-class>
+    <servlet-class>ru.job4j.dream.servlet.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Edit</servlet-name>
-    <servlet-class>ru.job4j.dream.servlets.Edit</servlet-class>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.EditServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Edit</servlet-name>
+    <servlet-name>EditServlet</servlet-name>
     <url-pattern>/edit.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RegServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.RegServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegServlet</servlet-name>
+    <url-pattern>/reg.do</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>AuthFilter</filter-name>

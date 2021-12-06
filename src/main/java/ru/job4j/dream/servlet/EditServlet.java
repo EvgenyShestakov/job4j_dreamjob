@@ -1,11 +1,11 @@
-package ru.job4j.dream.servlets;
+package ru.job4j.dream.servlet;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Edit extends HttpServlet {
+public class EditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse resp) throws IOException {
