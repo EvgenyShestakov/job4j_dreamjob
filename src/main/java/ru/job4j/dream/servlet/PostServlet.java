@@ -19,7 +19,6 @@ public class PostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req,
                           HttpServletResponse resp) throws IOException {
-        req.setCharacterEncoding("UTF-8");
         DbStore.instOf().savePost(new Post(Integer.parseInt(req.
                 getParameter("id")), req.getParameter("name")));
         resp.sendRedirect(req.getContextPath() + "/posts.do");
