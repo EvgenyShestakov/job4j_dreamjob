@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            var value1 = $('#firstName').val();
+            if (value1 != '') {
+                alert(value1);
+            } else {
+               alert('Заполните поле ' + $('#firstName').attr('id') );
+            }
+            var value2 = $('#lastName').val();
+            if (value2 != '') {
+                alert(value2);
+            } else {
+                alert('Заполните поле ' + $('#lastName').attr('id') );
+            }
+            var value3 = $('#textarea').val();
+            if (value3 != '') {
+                alert(value3);
+            } else {
+                alert('Заполните поле ' + $('#textarea').attr('id') );
+            }
+            return false;
+        }
+    </script>
 </head>
 <body>
 
@@ -15,12 +38,12 @@
     <p>This is some text.</p>
     <form>
         <div class="form-group row">
-            <label for="name">FirstName</label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+            <label for="firstName">FirstName</label>
+            <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp">
         </div>
         <div class="form-group row">
-            <label for="lastname">LastName</label>
-            <input type="text" class="form-control" id="lastname">
+            <label for="lastName">LastName</label>
+            <input type="text" class="form-control" id="lastName">
         </div>
         <div class="form-group">
             <div class="form-check">
@@ -38,10 +61,10 @@
         </div>
         <div class="mb-3">
             <label for="textarea">Description</label>
-            <textarea class="form-control" id="textarea" ></textarea>
+            <textarea class="form-control" id="textarea"></textarea>
         </div>
         <br/>
-        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="submit" class="btn btn-primary" onclick="return validate()">Send</button>
     </form>
     <br/>
     <table class="table">
