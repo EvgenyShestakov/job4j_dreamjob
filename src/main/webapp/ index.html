@@ -10,22 +10,16 @@
     <script>
         function validate() {
             var value1 = $('#firstName').val();
-            if (value1 != '') {
-                alert(value1);
-            } else {
-                alert('Заполните поле ' + $('#firstName').attr('id') );
+            if (value1 == '') {
+                alert('Заполните поле ' + $('#firstName').attr('id'));
             }
             var value2 = $('#lastName').val();
-            if (value2 != '') {
-                alert(value2);
-            } else {
-                alert('Заполните поле ' + $('#lastName').attr('id') );
+            if (value2 == '') {
+                alert('Заполните поле ' + $('#lastName').attr('id'));
             }
             var value3 = $('#textarea').val();
-            if (value3 != '') {
-                alert(value3);
-            } else {
-                alert('Заполните поле ' + $('#textarea').attr('id') );
+            if (value3 == '') {
+                alert('Заполните поле ' + $('#textarea').attr('id'));
             }
             return false;
         }
