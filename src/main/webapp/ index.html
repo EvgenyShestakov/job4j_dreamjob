@@ -9,35 +9,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         function validate() {
+            var flag = true;
             var value1 = $('#firstName').val();
             if (value1 == '') {
                 alert('Заполните поле ' + $('#firstName').attr('id'));
+                flag = false;
             }
             var value2 = $('#lastName').val();
             if (value2 == '') {
                 alert('Заполните поле ' + $('#lastName').attr('id'));
+                flag = false;
             }
             var value3 = $('#textarea').val();
             if (value3 == '') {
                 alert('Заполните поле ' + $('#textarea').attr('id'));
+                flag = false;
             }
-            return false;
+            return flag;
         }
     </script>
     <script>
         function addRow() {
-            var count = document.getElementById('table').getElementsByTagName('tr').length;
-            const firstName = $('#firstName').val();
-            const lastName = $('#lastName').val();
-            var gender;
-            if(document.getElementById('gender_Male').checked) {
-                gender = $('#gender_Male').val();
-            } else if(document.getElementById('gender_Female').checked) {
-                gender = $('#gender_Female').val();
+            if (validate()) {
+                var count = document.getElementById('table').getElementsByTagName('tr').length;
+                const firstName = $('#firstName').val();
+                const lastName = $('#lastName').val();
+                var gender;
+                if(document.getElementById('gender_Male').checked) {
+                    gender = $('#gender_Male').val();
+                } else if(document.getElementById('gender_Female').checked) {
+                    gender = $('#gender_Female').val();
+                }
+                var textarea = $('#textarea').val();
+                $('#table tr:last').after('<tr> <th scope="col">'+ count +'</th><td>' + firstName +'</td><td>' + lastName +'</td><td>'
+                    + gender  +'</td><td>' + textarea +'</td></tr>');
             }
-            var textarea = $('#textarea').val();
-            $('#table tr:last').after('<tr> <th scope="col">'+ count +'</th><td>' + firstName +'</td><td>' + lastName +'</td><td>'
-                + gender  +'</td><td>' + textarea +'</td></tr>');
         }
     </script>
 </head>
